@@ -1,0 +1,106 @@
+* {
+    font-family: 'Montserrat';
+  }
+  
+  h1 {
+    text-align: center;
+    color: #f5f5f5;
+  }
+  
+  label {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+
+  .card-header {
+    color: rgb(156, 43, 43);
+  }
+  
+  
+
+  .ion-icon {
+    color: rgb(255, 255, 255);
+  }
+  
+  /* Class Selectors */
+  .icons {
+      height: 80px;
+      width: 80px;
+  }
+  
+  .cardCurrentDate {
+      font-size: 20px;
+      color: rgb(255, 255, 255);
+  }
+
+  #days {
+    color: black;
+    text-align: left;
+  }
+  
+  .cardCurrentCityName {
+    font-size: 30px;
+    font-weight: 800;
+    color: white;
+  }
+  .card {
+      margin: 15px;
+    font-size: 16px;
+  }
+ 
+  
+  .colm1 {
+      background-color: #f5f5f5;
+  }
+  
+  .colm2 {
+      background-color: #f5f5f5;
+  }
+  
+  .histBtnRow {
+      margin-top: 8px;
+      margin-bottom: 8px;
+  }
+ 
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+ 
+  
+  body {
+    min-height: 100%;
+    line-height: 1;
+    font-family: sans-serif;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 100%;
+  }
+  
+  input,
+  select,
+  option,
+  optgroup,
+  textarea,
+  button,
+  pre,
+  code {
+    font-size: 100%;
+    font-family: inherit;
+  }
+  
+  ol,
+  ul {
+    list-style: none;
+  }
+  
