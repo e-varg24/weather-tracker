@@ -1,16 +1,16 @@
-// API Key from openweathermap.org/api_keys
-var key = "b79cc6254e27226610d5a3bedbb15850";
+// API Key openweathermap.org/api_keys
 
-var city = "Austin";
+var city = "Aspen";
+var key = "b574cddc0867196624ca48984d8b52ac";
 
-// Current Time and Date
+// Current date-time
 var date = dayjs().format("dddd, MMM DD YYYY");
 var dateTime = dayjs().format("dddd, MMM DD YYYY, hh:mm.ss");
 
-// City history from search
+// City history from search bar
 var citySearch = [];
 
-// Save text value of search via storage/array
+// Save text value 
 $(".search").on("click", function(event){
   event.preventDefault();
   city = $(this).parent(".btnPar").siblings(".textVal").val().trim();
@@ -19,21 +19,21 @@ $(".search").on("click", function(event){
   };
   citySearch.push(city);
 
-	// set local storage for city's that were searched
+	//  local storage for the city search
   localStorage.setItem("city", JSON.stringify(citySearch));
   getFiveDayForecastEl.empty();
 	getHistory();
 	getCurrentWeather();
 });
 
-// buttons created based on search history
+// buttons created on search history
 var constHistEl = $(".citySearch");
 function getHistory() {
 	constHistEl.empty();
 
 	for (let i = 0; i < citySearch.length; i++) {
 
-		// creates a row and button list for the past searched cities
+		//row created for past search butons
 		var rowEl = $("<row>");
 		var btnEl = $("<button>").text(`${citySearch[i]}`);
 
@@ -48,7 +48,7 @@ function getHistory() {
 		return;
 	}
 
-	//allow buttons to start a search
+	//allows history buttons to creat search
 	$(".histBtn").on("click", function(event) {
 		event.preventDefault();
 		city = $(this).text();
@@ -59,10 +59,10 @@ function getHistory() {
 
 var cardContent = $(".cardContent");
 
-//weather data to today's card & 5 day forecast
+//weather data for today's card & next 5 day forecast
 function getCurrentWeather() {
 
-  // API for weather data
+  // Weather API
   let getUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`;
   
   $(cardContent).empty();
@@ -74,7 +74,7 @@ function getCurrentWeather() {
     $(".cardCurrentCityName").text(response.name);
     $(".cardCurrentDate").text(date);
 
-    //icons from openweathermap.org/weather-conditions
+    //icons 
 		$(".icons").attr("src", `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`);
 	// temp
 		var pEl = $("<p>").text(`Temperature: ${response.main.temp} °F`);
@@ -82,10 +82,10 @@ function getCurrentWeather() {
 	// wind
 		var pElWind = $("<p>").text(`Wind Speed: ${response.wind.speed} Mph`);
 		cardContent.append(pElWind);
-    // humidity
+    // humi
 		var pElHumid = $("<p>").text(`Humidity: ${response.main.humidity} %`);
 		cardContent.append(pElHumid);
-	// lat & long of city searches
+	// lat & long of city 
     var cityLat = response.coord.lat;
 		let cityLon = response.coord.lon;
     
@@ -95,7 +95,7 @@ function getCurrentWeather() {
 
 var getFiveDayForecastEl = $(".fiveForecast");
 
-// 5 day: openweathermap.org/forecast5
+// 5 day forcast
 function getFiveDayForecast() {
 	var getUrlFiveDay = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${key}`;
 
@@ -106,7 +106,7 @@ function getFiveDayForecast() {
 		var fiveDayArray = response.list;
 		var weatherCards = [];
 
-  //create array to show data on cards 
+  //array for data on cards 
   $.each(fiveDayArray, function (index, value) {
 		testObj = {
 			date: value.dt_txt.split(" ")[0],
@@ -142,13 +142,13 @@ function getFiveDayForecast() {
 			divElBody.attr("class", "card-body");
 			divElCard.append(divElBody);
 
-// pull right image icons from source
+            //correct image icons from source
 			var divElIcon = $("<img>");
 			divElIcon.attr("class", "icons");
 			divElIcon.attr("src", `https://openweathermap.org/img/wn/${weatherCards[i].icon}@2x.png`);
 			divElBody.append(divElIcon);
 
-			// display temp, wind speed and humidity on cards
+			// display temp, wind speed and hum on cards
 			var pElTemp = $("<p>").text(`Temperature: ${weatherCards[i].temp} °F`);
 			divElBody.append(pElTemp);
 

@@ -15,7 +15,7 @@
   }
 
   .card-header {
-    color: rgb(156, 43, 43);
+    color: rgb(247, 244, 244);
   }
   
   
@@ -26,8 +26,8 @@
   
   /* Class Selectors */
   .icons {
-      height: 80px;
-      width: 80px;
+      height: 60px;
+      width: 60px;
   }
   
   .cardCurrentDate {
@@ -46,7 +46,7 @@
     color: white;
   }
   .card {
-      margin: 15px;
+      margin: 20px;
     font-size: 16px;
   }
  
